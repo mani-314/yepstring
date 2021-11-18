@@ -134,7 +134,7 @@ function App() {
       </div>
       <footer>
         <div className="footer">
-          copyright
+          <a href="https://github.com/nilsayy/yepstring" target="_blank" id="doc">documentation</a>
         </div>
       </footer>
     </div>

@@ -96,8 +96,15 @@ footer{
 
 .footer{
     position: relative;
-    left: 50%;
+    /* left: 50%; */
     justify-content: space-around;
+}
+
+a:link{
+    color: rgb(138, 138, 138)
+}
+a:visited{
+    color: rgb(138, 138, 138);
 }
 
 form  { display: table;      }

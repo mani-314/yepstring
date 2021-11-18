@@ -1,0 +1,106 @@
+body, .App{
+    background-color: #ffffff;
+    width: 100vw;
+    height: 100vh;
+}
+
+#logo{
+    position: relative;
+    left: 50%;
+    top: 60px;
+    transform: translate(-50%, 0%);
+
+    width: 30%;
+    height: auto;
+}
+
+.objects{
+    position: relative;
+    width: 50vw;
+    height: 200px;
+    top: 37%; 
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+#explainer{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.input{
+    position: relative;
+    top: 80px;
+    background-color: #ffebcd;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    border: 2px solid #000000;
+    padding: 10px;
+    
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.inputcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputfield{
+    display: flex;
+    justify-content: space-between;
+
+}
+#jsonfile{
+    position: relative;
+    left: 10%;
+}
+
+#txtfile{
+    position: relative;
+    left: 10%;
+}
+
+#btn1{
+    width: 60px;
+}
+
+.download{
+    position: relative;
+    top: 120px; 
+    left: 50%;
+    transform: translate(-50%);
+    height: auto;
+    
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.download > *{
+    margin: 10px;
+}
+
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer{
+    position: relative;
+    left: 50%;
+    justify-content: space-around;
+}
+
+form  { display: table;      }
+p     { display: table-row;  }
+label { display: table-cell; }
+input { display: table-cell; }

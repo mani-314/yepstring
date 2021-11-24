@@ -4,6 +4,10 @@ body, .App{
     height: 100vh;
 }
 
+section {
+    flex-grow: 1;
+}
+
 #logo{
     position: relative;
     left: 50%;
@@ -17,7 +21,7 @@ body, .App{
 .objects{
     position: relative;
     width: 50vw;
-    height: 200px;
+    height: 50%;
     top: 37%; 
     left: 50%;
     transform: translate(-50%,-50%);
@@ -25,49 +29,66 @@ body, .App{
 }
 
 #explainer{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 70%;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    text-align: left;
 }
 
 .input{
     position: relative;
-    top: 80px;
-    background-color: #ffebcd;
+    top: 60px;
+    /* background-color: #ffebcd; */
     width: 100%;
-    height: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
-    border-radius: 25px;
-    border: 2px solid #000000;
-    padding: 10px;
+    /* align-items: center; */
     
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .inputcontainer{
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .inputfield{
+    width: 100%;
     display: flex;
     justify-content: space-between;
-
-}
-#jsonfile{
-    position: relative;
-    left: 10%;
 }
 
-#txtfile{
-    position: relative;
-    left: 10%;
+.encoding{
+    position: absolute;
+    left: 50%;
+    bottom: -30px;
+    width: 140px;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: space-around;
+    font-size: 95% ;
 }
 
 #btn1{
     width: 60px;
+    background-color: rgba(255, 255, 255, 0.356);
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(255, 136, 24);
+    font-weight: bolder;
+}
+
+#dltext{
+    background-color: rgba(255, 255, 255, 0.356);
+    border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+#select{
+    background-color: rgba(255, 255, 255, 0.356);
+    border: 1px solid rgba(0, 0, 0, 0.35);
 }
 
 .download{
@@ -75,7 +96,6 @@ body, .App{
     top: 120px; 
     left: 50%;
     transform: translate(-50%);
-    height: auto;
     
     width: fit-content;
     display: flex;
@@ -96,7 +116,8 @@ footer{
 
 .footer{
     position: relative;
-    /* left: 50%; */
+    width: fit-content;
+    left: 50%;
     justify-content: space-around;
 }
 
@@ -111,3 +132,100 @@ form  { display: table;      }
 p     { display: table-row;  }
 label { display: table-cell; }
 input { display: table-cell; }
+
+/* drag and drop */
+.file-drop-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 200px;
+    max-width: 100%;
+    padding: 25px;
+    background-color: rgb(255, 248, 240);
+    border: 2px dashed rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    transition: 0.2s;
+  }
+.is-active + .file-drop-area {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.json-drop-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 200px;
+    max-width: 100%;
+    padding: 25px;
+    background-color: rgb(255, 248, 240);
+    border: 2px dashed rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    transition: 0.2s;
+  }
+.is-active + .json-drop-area {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+  .fake-btn {
+    flex-shrink: 0;
+    background-color: rgba(255, 197, 111, 0.356);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    padding: 8px 15px;
+    margin-right: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 10%;
+  }
+  
+  .file-msg {
+    font-size: small;
+    font-weight: 300;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    position: absolute;
+    bottom: 2%;
+  }
+
+  .json-msg {
+    font-size: small;
+    font-weight: 300;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    position: absolute;
+    bottom: 2%;
+  }
+  
+  .file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+    /* &:focus {
+      outline: none;
+    } */
+  }
+
+  .json-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+    /* &:focus {
+      outline: none;
+    } */
+  }

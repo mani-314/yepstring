@@ -4,6 +4,7 @@ import "./App.css"
 import {useState} from "react"
 import languageEncoding from "detect-file-encoding-and-language"
 import logo from "./static/yep_logo.png"
+import $ from "jquery"
 
 // App
 
@@ -96,6 +97,62 @@ function App() {
   }
 
 
+  var $jsonInput = $('.json-input');
+  var $dropareaJson = $('.json-drop-area');
+  
+  // highlight drag area
+  $jsonInput.on('dragenter focus click', function() {
+    $dropareaJson.addClass('is-active');
+  });
+  
+  // back to normal state
+  $jsonInput.on('dragleave blur drop', function() {
+    $dropareaJson.removeClass('is-active');
+  });
+  
+  // change inner text
+  $jsonInput.on('change', function() {
+    var filesCount = $(this)[0].files.length;
+    var $textContainer = $(this).prev();
+  
+    if (filesCount === 1) {
+      // if single file is selected, show file name
+      var fileName = $(this).val().split('\\').pop();
+      $textContainer.text(fileName);
+    } else {
+      // otherwise show number of files
+      $textContainer.text(filesCount + ' files selected');
+    }
+  });
+
+  var $fileInput = $('.file-input');
+  var $droparea = $('.file-drop-area');
+  
+  // highlight drag area
+  $fileInput.on('dragenter focus click', function() {
+    $droparea.addClass('is-active');
+  });
+  
+  // back to normal state
+  $fileInput.on('dragleave blur drop', function() {
+    $droparea.removeClass('is-active');
+  });
+  
+  // change inner text
+  $fileInput.on('change', function() {
+    var filesCount = $(this)[0].files.length;
+    var $textContainer = $(this).prev();
+  
+    if (filesCount === 1) {
+      // if single file is selected, show file name
+      var fileName = $(this).val().split('\\').pop();
+      $textContainer.text(fileName);
+    } else {
+      // otherwise show number of files
+      $textContainer.text(filesCount + ' files selected');
+    }
+  });
+
   //html
   return (
     <div className="App">
@@ -110,31 +167,42 @@ function App() {
         <div className="input">
           <div className="inputcontainer">
             <div className="inputfield">
-              <label>.json dictionary</label> 
-              <input type="file" id="jsonfile" onChange={handleJsonupload}></input>
+              <div class="json-drop-area">
+                <span class="fake-btn">Choose json file</span>
+                <span class="json-msg">or drag and drop files here</span>
+                <input class="json-input" type="file" onChange={handleJsonupload} accept=".json"></input>
+              </div>
+              <div class="file-drop-area">
+                <span class="fake-btn">Choose txt file</span>
+                <span class="file-msg">or drag and drop files here</span>
+                <input class="file-input" type="file" onChange={handleTxtinput} accept=".txt"></input>
+              </div>
             </div>
-            <div className="inputfield">
-              <label>.txt file</label>
-              <input type="file" id="txtfile" onChange={handleTxtinput}></input>
-            </div>
-            <div className="inputfield">
-              <label>Encoding</label>
-             <select id="select" onChange={handleSelect}>
+            <div className="encoding">
+              <label>Encoding:</label>
+              <select id="select" onChange={handleSelect}>
                 <option value="UTF-8" defaultValue>UTF-8</option>
                 <option value="cp1252">ANSI</option>
               </select>
             </div>
           </div>
         </div>  
-        <div className="download">
-            
+        <div className="download">   
             <input type="text" id="dltext" value={dlfilename} onChange={handleFilename}></input>
             <button id="btn1" onClick={handleBtn1click}>YEP</button>
         </div> 
       </div>
+      
+      {/* drag and drop test */}
+      {/* <div class="file-drop-area">
+        <span class="fake-btn">Choose files</span>
+        <span class="file-msg">or drag and drop files here</span>
+        <input class="file-input" type="file" multiple></input>
+      </div> */}
+
       <footer>
         <div className="footer">
-          <a href="https://github.com/nilsayy/yepstring" target="_blank" id="doc">documentation</a>
+          <a href="https://github.com/nilsayy/yepstring" target="_blank" id="doc">source</a>
         </div>
       </footer>
     </div>

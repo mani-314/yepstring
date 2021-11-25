@@ -133,7 +133,7 @@ p     { display: table-row;  }
 label { display: table-cell; }
 input { display: table-cell; }
 
-/* drag and drop */
+/* drag and drop areas*/
 .file-drop-area {
     position: relative;
     display: flex;

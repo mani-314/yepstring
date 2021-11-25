@@ -62,27 +62,31 @@ function App() {
   const handleBtn1click = () =>{
     // console.log(txtin)
     // console.log(dic)
-    var key
-    for (key in dic){
-        setTxtin(txtin.replaceAll(key, dic[key]))
-    }   
-    //console.log(txtin)
-    var tempdlfilename = dlfilename 
-    if(!tempdlfilename.endsWith(".txt")){
-        tempdlfilename = tempdlfilename+".txt"
-        console.log(tempdlfilename)
-    }
-    var link = document.createElement("a")
-    link.setAttribute("download", tempdlfilename)
-    link.href = makeTextFile(txtin)
-    document.body.appendChild(link)
+    
+    //check for input
+    if(txtin!=null){
+      var key
+      for (key in dic){
+          setTxtin(txtin.replaceAll(key, dic[key]))
+      }   
+      //console.log(txtin)
+      var tempdlfilename = dlfilename 
+      if(!tempdlfilename.endsWith(".txt")){
+          tempdlfilename = tempdlfilename+".txt"
+          console.log(tempdlfilename)
+      }
+      var link = document.createElement("a")
+      link.setAttribute("download", tempdlfilename)
+      link.href = makeTextFile(txtin)
+      document.body.appendChild(link)
 
-    //wait for the link to be added to the document
-    window.requestAnimationFrame(function(){
-        var event = new MouseEvent("click")
-        link.dispatchEvent(event)
-        document.body.removeChild(link)
-    })
+      //wait for the link to be added to the document
+      window.requestAnimationFrame(function(){
+          var event = new MouseEvent("click")
+          link.dispatchEvent(event)
+          document.body.removeChild(link)
+      })
+    }
   }
 
   // function handling filename input
@@ -167,15 +171,15 @@ function App() {
         <div className="input">
           <div className="inputcontainer">
             <div className="inputfield">
-              <div class="json-drop-area">
-                <span class="fake-btn">Choose json file</span>
-                <span class="json-msg">or drag and drop files here</span>
-                <input class="json-input" type="file" onChange={handleJsonupload} accept=".json"></input>
+              <div className="json-drop-area">
+                <span className="fake-btn">Choose json file</span>
+                <span className="json-msg">or drag and drop files here</span>
+                <input className="json-input" type="file" onChange={handleJsonupload} accept=".json"></input>
               </div>
-              <div class="file-drop-area">
-                <span class="fake-btn">Choose txt file</span>
-                <span class="file-msg">or drag and drop files here</span>
-                <input class="file-input" type="file" onChange={handleTxtinput} accept=".txt"></input>
+              <div className="file-drop-area">
+                <span className="fake-btn">Choose txt file</span>
+                <span className="file-msg">or drag and drop files here</span>
+                <input className="file-input" type="file" onChange={handleTxtinput} accept=".txt"></input>
               </div>
             </div>
             <div className="encoding">

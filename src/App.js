@@ -197,13 +197,6 @@ function App() {
         </div> 
       </div>
       
-      {/* drag and drop test */}
-      {/* <div class="file-drop-area">
-        <span class="fake-btn">Choose files</span>
-        <span class="file-msg">or drag and drop files here</span>
-        <input class="file-input" type="file" multiple></input>
-      </div> */}
-
       <footer>
         <div className="footer">
           <a href="https://github.com/nilsayy/yepstring" target="_blank" id="doc">source</a>

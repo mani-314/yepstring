@@ -5,6 +5,7 @@ import {useState} from "react"
 import languageEncoding from "detect-file-encoding-and-language"
 import logo from "./static/yep_logo_dark.png"
 import $ from "jquery"
+import { atom, useAtom } from "react-atomic-state"
 
 // App
 
@@ -13,6 +14,7 @@ function App() {
   // define state variables
   const [dic,setDic]=useState()
   const [txtin,setTxtin]=useState()
+  var txt
   const [filename,setFilename]=useState("")
   const [fileEncode, setFileencode]=useState("UTF-8")
   const [dlfilename, setDlfilename]=useState("") 
@@ -45,31 +47,30 @@ function App() {
   }
 
   // function handling the .txt input
-  const handleTxtinput = (event) =>{
-    //console.log(event.target.files[0].name)
+  async function handleTxtinput(event){
     setFilename(event.target.files[0].name)
     languageEncoding(event.target.files[0]).then(fileInfo => console.log(fileInfo));
 
     const reader = new FileReader()
     reader.onload = event => setTxtin(event.target.result)
-    // reader.onerror = error => reject(error)
     reader.readAsText(event.target.files[0], fileEncode)
-    //console.log(filename)
     setDlfilename(event.target.files[0].name.split(".")[0]+"_yep.txt")
+    console.log(txtin)
   }
 
   // function handling the "YEP" button
   const handleBtn1click = () =>{
-    // console.log(txtin)
-    // console.log(dic)
-    
+    console.log(txtin)
+    console.log(dic)
+    txt = txtin
     //check for input
     if(txtin!=null){
       var key
       for (key in dic){
-          setTxtin(txtin.replaceAll(key, dic[key]))
+          // setTxtin(txtin.replaceAll(key, dic[key])) 
+          txt = txt.replaceAll(key, dic[key])
       }   
-      //console.log(txtin)
+      console.log(txt)
       var tempdlfilename = dlfilename 
       if(!tempdlfilename.endsWith(".txt")){
           tempdlfilename = tempdlfilename+".txt"
@@ -77,7 +78,7 @@ function App() {
       }
       var link = document.createElement("a")
       link.setAttribute("download", tempdlfilename)
-      link.href = makeTextFile(txtin)
+      link.href = makeTextFile(txt)
       document.body.appendChild(link)
 
       //wait for the link to be added to the document

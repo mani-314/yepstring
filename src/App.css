@@ -114,8 +114,9 @@ footer{
 .footer{
     position: relative;
     width: fit-content;
-    left: 50%;
     justify-content: space-around;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 a:link{

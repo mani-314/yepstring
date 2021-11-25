@@ -1,5 +1,5 @@
 body, .App{
-    background-color: #ffffff;
+    background-color: #181818;
     width: 100vw;
     height: 100vh;
 }
@@ -35,6 +35,7 @@ section {
     width: 70%;
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
+    color: white;
 }
 
 .input{
@@ -50,7 +51,7 @@ section {
 }
 
 .inputcontainer{
-    width: 50%;
+    width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -65,30 +66,31 @@ section {
 .encoding{
     position: absolute;
     left: 50%;
-    bottom: -30px;
+    bottom: -40px;
     width: 140px;
     transform: translate(-50%);
     display: flex;
     justify-content: space-around;
     font-size: 95% ;
+    color: white;
 }
 
 #btn1{
     width: 60px;
-    background-color: rgba(255, 255, 255, 0.356);
-    border: 1px solid rgb(0, 0, 0);
-    color: rgb(255, 136, 24);
+    background-color: rgb(0, 0, 0);
+    border: 1px solid #1eff6c;
+    color: #1eff6c;
     font-weight: bolder;
 }
 
 #dltext{
-    background-color: rgba(255, 255, 255, 0.356);
-    border: 1px solid rgba(0, 0, 0, 0.35);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #1eff6c;
 }
 
 #select{
-    background-color: rgba(255, 255, 255, 0.356);
-    border: 1px solid rgba(0, 0, 0, 0.35);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #1eff6c;
 }
 
 .download{
@@ -97,16 +99,11 @@ section {
     left: 50%;
     transform: translate(-50%);
     
-    width: fit-content;
+    width: 210px;
     display: flex;
     justify-content: space-between;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-.download > *{
-    margin: 10px;
-}
-
 
 footer{
     position: absolute;
@@ -142,14 +139,15 @@ input { display: table-cell; }
     height: 200px;
     max-width: 100%;
     padding: 25px;
-    background-color: rgb(255, 248, 240);
-    border: 2px dashed rgba(0, 0, 0, 0.4);
-    border-radius: 3px;
+    background-color: rgb(190, 190, 190);
+    border: 4px solid #1eff6c;
+    border-radius: 4px;
     transition: 0.2s;
-  }
-.is-active + .file-drop-area {
-    background-color: rgba(255, 255, 255, 0.02);
 }
+
+/* .is-active + .file-drop-area {
+    background-color: rgba(255, 255, 255, 0.02);
+} */
 
 .json-drop-area {
     position: relative;
@@ -159,17 +157,19 @@ input { display: table-cell; }
     height: 200px;
     max-width: 100%;
     padding: 25px;
-    background-color: rgb(255, 248, 240);
-    border: 2px dashed rgba(0, 0, 0, 0.4);
-    border-radius: 3px;
+    background-color: rgb(190, 190, 190);
+    border: 4px solid #1eff6c;
+    border-radius: 4px;
     transition: 0.2s;
-  }
-.is-active + .json-drop-area {
-    background-color: rgba(255, 255, 255, 0.02);
 }
-  .fake-btn {
+
+/* .is-active + .json-drop-area {
+    background-color: rgba(255, 255, 255, 0.02);
+} */
+
+.fake-btn {
     flex-shrink: 0;
-    background-color: rgba(255, 197, 111, 0.356);
+    background-color: #1eff6d48;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 3px;
     padding: 8px 15px;
@@ -178,9 +178,9 @@ input { display: table-cell; }
     text-transform: uppercase;
     position: absolute;
     bottom: 10%;
-  }
+}
   
-  .file-msg {
+.file-msg {
     font-size: small;
     font-weight: 300;
     line-height: 1.4;
@@ -190,9 +190,9 @@ input { display: table-cell; }
 
     position: absolute;
     bottom: 2%;
-  }
+}
 
-  .json-msg {
+.json-msg {
     font-size: small;
     font-weight: 300;
     line-height: 1.4;
@@ -202,9 +202,9 @@ input { display: table-cell; }
 
     position: absolute;
     bottom: 2%;
-  }
+}
   
-  .file-input {
+.file-input {
     position: absolute;
     left: 0;
     top: 0;
@@ -215,9 +215,9 @@ input { display: table-cell; }
     /* &:focus {
       outline: none;
     } */
-  }
+}
 
-  .json-input {
+.json-input {
     position: absolute;
     left: 0;
     top: 0;
@@ -228,4 +228,4 @@ input { display: table-cell; }
     /* &:focus {
       outline: none;
     } */
-  }
+}

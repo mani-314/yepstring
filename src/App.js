@@ -5,7 +5,6 @@ import {useState} from "react"
 import languageEncoding from "detect-file-encoding-and-language"
 import logo from "./static/yep_logo_dark.png"
 import $ from "jquery"
-import { atom, useAtom } from "react-atomic-state"
 
 // App
 

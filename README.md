@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/nils-matthaei/yepstring.png)](https://codeclimate.com/github/nils-matthaei/yepstring)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
